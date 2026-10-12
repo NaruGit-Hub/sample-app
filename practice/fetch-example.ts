@@ -11,7 +11,7 @@ async function fetchTodos(): Promise<void> {
   console.log("APIからTODOを取得中...");
 
   const response = await fetch(
-    "https://jsonplaceholder.typicode.com/todos?_limit=5"
+    "https://jsonplaceholder.typicode.com/todos?_limit=5",
   );
   const todos: TodoFromAPI[] = await response.json();
 

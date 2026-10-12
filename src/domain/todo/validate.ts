@@ -11,3 +11,20 @@ export function isValidTitle(title: string): boolean {
   return true;
 }
 // exportをつけると、このファイルを他のファイルからimportできるようになる
+
+/**
+ * TODO のタイトルを検証し、不正なら理由を throw、正常なら整形済みの値を返す
+ */
+export function validateTitle(rawTitle: unknown): string {
+  if (typeof rawTitle !== "string") {
+    throw new Error("タイトルは必須です");
+  }
+  const trimmed = rawTitle.trim();
+  if (trimmed.length === 0) {
+    throw new Error("タイトルは必須です");
+  }
+  if (trimmed.length > 100) {
+    throw new Error("タイトルは100文字以内にしてください");
+  }
+  return trimmed;
+}
